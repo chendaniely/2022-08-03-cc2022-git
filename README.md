@@ -11,3 +11,5 @@ Etherpad: https://pad.carpentries.org/cc2022-beyond-SWC-git-lesson
 - `git switch -c <NAME>`:
   1. Create a branch called <NAME>
   2. Switch to that branch
+
+- All you need to do is update the branch, and the PR will be updated too.
