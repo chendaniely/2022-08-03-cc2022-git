@@ -20,6 +20,34 @@ Etherpad: https://pad.carpentries.org/cc2022-beyond-SWC-git-lesson
   - `git branch -d <NAME>`: delete the branch <NAME>
     - Note: lower-case d (use -D for force delete)
 
+## Conflicts
+
+Code to simulate a 2 branch conflict
+
+```bash
+git switch -c conflict_branch_1
+echo "Changes to b1 commit 1" >> README.md
+git status
+git add README.md
+git commit -m "b1 c1"
+echo "Changes to b1 commit 2" >> README.md
+git add README.md
+git commit -m "b1 c2"
+
+git switch main
+
+git switch -c conflict_branch_2
+echo "Changes to b2 commit 1" >> README.md
+git add README.md
+git commit -m "b2 c1"
+echo "Changes to b2 commit 2" >> README.md
+git add README.md
+git commit -m "b2 c2"
+
+git push origin conflict_branch_2
+git push origin conflict_branch_1
+```
+
 ## Rebaseing
 
 1. `git fetch --prune`: update all your history stuff
