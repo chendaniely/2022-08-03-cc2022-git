@@ -13,3 +13,9 @@ Etherpad: https://pad.carpentries.org/cc2022-beyond-SWC-git-lesson
   2. Switch to that branch
 
 - All you need to do is update the branch, and the PR will be updated too.
+
+- Cleaing up after PR merge
+  - Delete the branch on the remote
+  - `git fetch --prune`: update local history
+  - `git branch -d <NAME>`: delete the branch <NAME>
+    - Note: lower-case d (use -D for force delete)
