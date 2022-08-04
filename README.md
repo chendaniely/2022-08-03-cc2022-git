@@ -29,3 +29,5 @@ Changes to b1 commit 2
 Changes to b2 commit 1
 Changes to b2 commit 2
 Changes to b2 commit 3
+
+- `git rebase -i HEAD~5`: interactive rebase, useful for large merge conflicts
