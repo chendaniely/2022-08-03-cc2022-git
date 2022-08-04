@@ -20,6 +20,22 @@ Etherpad: https://pad.carpentries.org/cc2022-beyond-SWC-git-lesson
   - `git branch -d <NAME>`: delete the branch <NAME>
     - Note: lower-case d (use -D for force delete)
 
+## Rebaseing
+
+1. `git fetch --prune`: update all your history stuff
+2. update the branch you want to rebase against (usually `main`) using `git pull`
+3. go to your branch with the conflict (or the one you want to rebase)
+4. `git rebase main`: to update your branch with the new stuff from `main`
+   1. fix conflicts as needed.
+   2. follow the instructions from the git output.
+   3. Usually, you fix up the `<<< === >>>` stuff
+   4. `git add FILE`
+   5. `git rebase --continue`
+5. force update your remote branch: `git push --force-with-leases origin BRANCH`
+6. you should be able to merge the branch now
+
+## Text from rebaseing example
+
 Changes to b1 commit 1
 Changes to b1 commit 2
 Changes to b2 commit 1
@@ -29,3 +45,22 @@ Changes to b1 commit 2
 Changes to b2 commit 1
 Changes to b2 commit 2
 Changes to b2 commit 3
+
+## Interactive rebase
+
+1. go to your branch  you want to squash everything down
+2. `git log --oneline --all`: know how many commits you want to squash down to
+3. `git rebase -i HEAD~5`: where 5 is the number of commits (you can also pick the last commit)
+4. follow instructions from the text editor
+   1. to squash: replace the `pick` with `s`
+   2. it will create a new commit
+5. `git log --oneline`: eventuall you will have everything in 1 commit
+
+## Branch protection stuff
+
+Branch protection rules force you to practice collaboration on your own
+
+```
+git log --oneline --graph --all
+git reset --hard <HASH>: force move current branch to location
+```
